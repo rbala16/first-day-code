@@ -1,6 +1,9 @@
 // my APIKey is "b4ed94adc674507878b0aeb7f93e988b";
 var enterCityName = $("#cityName");
 var confirmAppointment = $("#confirm");
+var holidayName = $("#holiday-name")
+var holidayDate = $("#holiday-date")
+var DateofAppointment = $("#Date-of-Appointment")
 
 $(document).ready(function(){
   //event listener on search button
@@ -66,16 +69,28 @@ function canadianholidays(){
     return response.json();
 
   })
-  .then(function(data){
-    console.log(data);
-    $("#holidays").html("<h4 class=\"mt-4\">Canadians Holidays:</h4>").append("<div class=\"row\">");
-    for (var i = 0; i < holidays.length; i++) {
-      var cardholidays =    $("<div>").css("background-color:blue color:White")
-    var displayHolidays = $("<p>").text("Wind: " + holidays[i].date);
-    var displayHolidaysss = $("<p>").text("Wind: " + holidays[i].nameEn);
- console.log(displayHolidaysss)
 
+  .then(function(data){
+    for (i=0; i<data.holidays.length;i++){
+      console.log("Date:", data.holidays[i].date)
+      console.log("Holiday Name:", data.holidays[i].nameEn);
+//       var canholi = $("<div>").addClass("col-md-2.5");
+//       var holidays = $("<p>").addClass("card-text").text("Wind: " + data.holidays[i].date);
+//       var canadianholidays = $("<p>").addClass("card-text").text("Humidity: " + data.holidays[i].nameEn);
+// canholi.append(canadianholidays,holidays);
+
+      //console.log("Date:", data.holidays[i]./*different property name here*/);
+     
+      var winddays = $("<p>").text("Date :" + data.holidays[i].date );
+      var humiddays = $("<p>").text("Holiday Name :" + data.holidays[i].nameEn);
+     if(DateofAppointment === data.holidays[i].date){
+      alert("Holiday,check anotherv date");
+      canadianholidays();
+   
+    }
+  
   }
+   
   })
 }
 })
