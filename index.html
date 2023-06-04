@@ -21,6 +21,12 @@
 <body>
 
   <input class="input is-info" type="text" id="cityName" placeholder="E.g Toronto">
+  <div class="field">
+    <label class="label is-underlined"> Date </label>
+    <div>
+      <input type="date">
+    </div>
+  </div>
   <button class="button is-primary" id="confirm">Confirm & Save</button>
 
   <header class="container-fluid text-center text-black bg-light p-2">
@@ -46,10 +52,10 @@
         <div id="forecast" class="card-deck mt-3"></div>
       </div>
 
-      <div class="col-lg-9">
-        <div id="canadian-holidays" class="mt-4"></div>
-        <div id="holidays" class="card-deck mt-4"></div>
-      </div>
+
+      <div id="holiday-date" class="mt-4"></div>
+      <div id="holiday-name" class="card-deck mt-4"></div>
+
 
     </div>
   </div>
